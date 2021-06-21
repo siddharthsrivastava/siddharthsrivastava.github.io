@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Frederic Jurie | Siddharth Srivastava</title>
+    <link>/author/frederic-jurie/</link>
+      <atom:link href="/author/frederic-jurie/index.xml" rel="self" type="application/rss+xml" />
+    <description>Frederic Jurie</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 30 Jun 2019 09:36:36 +0530</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Frederic Jurie</title>
+      <link>/author/frederic-jurie/</link>
+    </image>
+    
+    <item>
+      <title>Learning 2D to 3D Lifting for Object Detection in 3D for Autonomous Vehicles</title>
+      <link>/publication/birdgan/</link>
+      <pubDate>Sun, 30 Jun 2019 09:36:36 +0530</pubDate>
+      <guid>/publication/birdgan/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
