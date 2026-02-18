@@ -1,1621 +1,511 @@
-<!DOCTYPE html><html lang="en-us" >
-
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-  
-  
-  <meta name="generator" content="Wowchemy 4.8.0 for Hugo">
-  
-
-  
-
-  
-  
-
-  
-  
-  
-  
-  
-    
-    
-    
-  
-  
-
-  <meta name="author" content="Siddharth Srivastava">
-
-  
-  
-  
-    
-  
+  <title>Siddharth Srivastava</title>
   <meta name="description" content="AI Architect, Typeface">
-
-  
-  <link rel="alternate" hreflang="en-us" href="/">
-
-  
-
-
-
-
-
-
-
-  
-
-
-
-
-  
-  
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-
-  
-  
-  
+  <meta name="author" content="Siddharth Srivastava">
   <meta name="theme-color" content="#2962ff">
-  
 
-  
-  
+  <meta property="og:site_name" content="Siddharth Srivastava">
+  <meta property="og:title" content="Siddharth Srivastava">
+  <meta property="og:description" content="AI Architect, Typeface">
+  <meta property="og:url" content="/">
+  <meta property="og:type" content="website">
+  <meta property="twitter:card" content="summary">
 
-  
-  
-  
-  
-    
-    
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
-
-    
-    
-    
-      
-    
-    
-      
-      
-        
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-        
-      
-    
-
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
-    
-
-    
-
-    
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-        
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-
-  
-
-  
-  
-  
-    
-      
-      
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
-    
-  
-
-  
-  
-  
-  
-  <link rel="stylesheet" href="/css/wowchemy.css">
-
-  
-
-
-
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CW0467JQS0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-      dataLayer.push(arguments);
-  }
-
-  function trackOutboundLink(url, target) {
-    gtag('event', 'click', {
-         'event_category': 'outbound',
-         'event_label': url,
-         'transport_type': 'beacon',
-         'event_callback': function () {
-           if (target !== '_blank') {
-             document.location = url;
-           }
-         }
-    });
-    console.debug("Outbound link clicked: " + url);
-  }
-
-  function onClickCallback(event) {
-    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
-      return;
-    }
-    trackOutboundLink(event.target, event.target.getAttribute('target'));  
-  }
-
-  gtag('js', new Date());
-  gtag('config', 'G-CW0467JQS0', {});
-
-  
-  document.addEventListener('click', onClickCallback, false);
-</script>
-
-
-  
-
-
-  
-  
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  
-
-  
-  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Siddharth Srivastava">
-  
-
-  <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
-
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
   <link rel="canonical" href="/">
 
-  
-  
-  
-  
-  
-  
-  
-    
-    
-  
-  
-  <meta property="twitter:card" content="summary">
-  
-  <meta property="og:site_name" content="Siddharth Srivastava">
-  <meta property="og:url" content="/">
-  <meta property="og:title" content="Siddharth Srivastava">
-  <meta property="og:description" content="AI Architect, Typeface"><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
-  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
-  
-    <meta property="og:updated_time" content="2026-02-18T00:00:00&#43;05:30">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-  
+  <!-- Flash-prevention: set theme before first paint -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  },
-  "url": "/"
-}
-</script>
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ── Custom Properties ── */
+    :root {
+      --accent: #2962ff;
+      --accent-hover: #0039cb;
+      --bg: #ffffff;
+      --bg-card: #f8f9fa;
+      --bg-nav: rgba(255,255,255,0.85);
+      --text: #212529;
+      --text-secondary: #555;
+      --border: #e0e0e0;
+      --tag-bg: #e3f2fd;
+      --tag-text: #1565c0;
+      --shadow: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-hover: 0 4px 12px rgba(0,0,0,0.12);
+    }
 
-  
+    [data-theme="dark"] {
+      --bg: #121212;
+      --bg-card: #1e1e1e;
+      --bg-nav: rgba(18,18,18,0.9);
+      --text: #e0e0e0;
+      --text-secondary: #aaa;
+      --border: #333;
+      --tag-bg: #1a237e;
+      --tag-text: #90caf9;
+      --shadow: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-hover: 0 4px 12px rgba(0,0,0,0.4);
+    }
 
+    /* ── Base ── */
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.3; }
+    img { max-width: 100%; height: auto; }
 
-  
+    /* ── Layout ── */
+    .container { max-width: 820px; margin: 0 auto; padding: 0 24px; }
 
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-nav);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-brand:hover { color: var(--accent); text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 20px; }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+    .theme-toggle:hover { color: var(--accent); }
+    .theme-toggle svg { width: 20px; height: 20px; fill: currentColor; }
 
-  
+    /* ── Sections ── */
+    section {
+      padding: 64px 0;
+      scroll-margin-top: 64px;
+    }
+    section + section { border-top: 1px solid var(--border); }
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 32px;
+    }
 
+    /* ── About ── */
+    .about-grid {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+    }
+    .profile-card { text-align: center; flex-shrink: 0; width: 200px; }
+    .avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+    }
+    .profile-card h1 { font-size: 1.3rem; margin-top: 16px; }
+    .profile-card .title { color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px; }
+    .profile-card .org { margin-top: 2px; font-size: 0.9rem; }
+    .profile-card .org a { font-weight: 500; }
+    .scholar-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+    .scholar-link:hover { color: var(--accent); text-decoration: none; }
+    .scholar-link svg { width: 18px; height: 18px; fill: currentColor; }
+    .bio p { margin-bottom: 16px; font-size: 1rem; }
+    .two-col { display: flex; gap: 48px; margin-top: 24px; }
+    .two-col h3 { font-size: 1rem; margin-bottom: 8px; }
+    .two-col ul { list-style: none; }
+    .two-col li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      padding: 3px 0;
+    }
+    .two-col li::before { content: none; }
+    .interests li::before {
+      content: "\2022";
+      color: var(--accent);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+    }
+    .education li { padding: 4px 0; }
+    .edu-degree { color: var(--text); font-weight: 500; }
+    .edu-school { font-size: 0.85rem; }
 
+    /* ── News ── */
+    .news-list { list-style: none; }
+    .news-list li {
+      display: flex;
+      gap: 16px;
+      padding: 10px 0;
+      font-size: 0.95rem;
+      align-items: baseline;
+    }
+    .news-list li + li { border-top: 1px solid var(--border); }
+    .news-date {
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--tag-text);
+      background: var(--tag-bg);
+      padding: 2px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
 
+    /* ── Publications ── */
+    .pub-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      transition: box-shadow 0.2s;
+    }
+    .pub-card:hover { box-shadow: var(--shadow-hover); }
+    .pub-venue {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--tag-text);
+      background: var(--tag-bg);
+      padding: 2px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .pub-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .pub-title a { color: var(--text); }
+    .pub-title a:hover { color: var(--accent); text-decoration: none; }
+    .pub-authors {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+    .pub-authors strong { color: var(--text); font-weight: 500; }
+    .pub-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pub-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 3px 12px;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .pub-links a:hover {
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+    }
 
+    /* ── Footer ── */
+    footer {
+      padding: 32px 0;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
 
-  <title>Siddharth Srivastava</title>
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      .about-grid { flex-direction: column; align-items: center; text-align: center; }
+      .profile-card { width: auto; }
+      .bio { text-align: left; }
+      .two-col { flex-direction: column; gap: 24px; }
+      section { padding: 40px 0; }
+      .section-title { font-size: 1.3rem; }
+    }
+  </style>
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CW0467JQS0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CW0467JQS0');
+  </script>
 </head>
 
-
-<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" class=" ">
-
-  
-  
-  
-    <script>window.wcDarkLightEnabled = true;</script>
-  
-  
-    <script>const isSiteThemeDark = false;</script>
-  
-  
-  <script src="/js/load-theme.js"></script>
-
-  <aside class="search-results" id="search">
-  <div class="container">
-    <section class="search-header">
-
-      <div class="row no-gutters justify-content-between mb-3">
-        <div class="col-6">
-          <h1>Search</h1>
-        </div>
-        <div class="col-6 col-search-close">
-          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
-        </div>
-      </div>
-
-      <div id="search-box">
-        
-        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
-        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
-        
-      </div>
-
-    </section>
-    <section class="section-search-results">
-
-      <div id="search-hits">
-        
-      </div>
-
-    </section>
-  </div>
-</aside>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
-  <div class="container">
-
-    
-    <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Siddharth Srivastava</a>
-    </div>
-    
-
-    
-    <button type="button" class="navbar-toggler" data-toggle="collapse"
-            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span><i class="fas fa-bars"></i></span>
-    </button>
-    
-
-    
-    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Siddharth Srivastava</a>
-    </div>
-    
-
-    
-    
-    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
-
-      
-      <ul class="navbar-nav d-md-inline-flex">
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#about" data-target="#about"><span>Home</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#news" data-target="#news"><span>News</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#publications" data-target="#publications"><span>Publications</span></a>
-        </li>
-
-        
-        
-
-      
-
-        
-      </ul>
-    </div>
-
-    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
-      
-      
-      <li class="nav-item">
-        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
-      </li>
-      
-
-      
-      
-      <li class="nav-item dropdown theme-dropdown">
-        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-moon" aria-hidden="true"></i>
-        </a>
-        <div class="dropdown-menu">
-          <a href="#" class="dropdown-item js-set-theme-light">
-            <span>Light</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-dark">
-            <span>Dark</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-auto">
-            <span>Automatic</span>
-          </a>
-        </div>
-      </li>
-      
-
-      
-
-    </ul>
-
-  </div>
-</nav>
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-<span class="js-widget-page d-none"></span>
-
-
-
-
-
-  
-  
-  
-  
-
-
-
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  
-
-  
-  
-
-  <section id="about" class="home-section wg-about   "  >
-    <div class="container">
-      
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-<div class="row">
-  <div class="col-12 col-lg-4">
-    <div id="profile">
-
-      
-      
-      <img class="avatar avatar-circle" src="/author/siddharth-srivastava/avatar_hu25d333fcded103db2f52f7476cb1420a_323798_270x270_fill_q90_lanczos_center.jpg" alt="Siddharth Srivastava">
-      
-
-      <div class="portrait-title">
-        <h2>Siddharth Srivastava</h2>
-        <h3>AI Architect (Director, ML)</h3>
-
-
-        <h3>
-          <a href="https://www.typeface.ai" target="_blank" rel="noopener">
-          <span>Typeface</span>
-          </a>
-        </h3>
-        
-      </div>
-
-      <ul class="network-icon" aria-hidden="true">
-        
-        
-        
-        
-        
-        
-        
-        
-          
-        
-        <li>
-          <a href="https://scholar.google.com/citations?user=tMpFlPIAAAAJ&amp;hl=en" target="_blank" rel="noopener">
-            <i class="ai ai-google-scholar big-icon"></i>
-          </a>
-        </li>
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-          
-        
-        
-      </ul>
-
-    </div>
-  </div>
-  <div class="col-12 col-lg-8">
-
-    
-    
-
-    <p>I am an AI Architect at <a href="https://www.typeface.ai">Typeface</a>, working on multimodal AI and generative content systems.
-      <br><br>
-    Previously, I co-founded <a href="https://tensortour.com">TensorTour Inc.</a> (acquired by Typeface, 2024), where we built visual AI products including <a href="https://cloudstudio.ai/">CloudStudio.ai</a>. I hold a Ph.D. from <a href="https://home.iitd.ac.in/">IIT Delhi</a>.
-    </p>
-
-
-    <div class="row">
-
-      
-      <div class="col-md-5">
-        <h3>Interests</h3>
-        <ul class="ul-interests">
-
-          <li>Computer Vision</li>
-
-          <li>Multimodal AI</li>
-
-          <li>3D Scene Understanding</li>
-
-        </ul>
-      </div>
-      
-
-      
-      <div class="col-md-7">
-        <h3>Education</h3>
-        <ul class="ul-edu fa-ul">
-          
-          <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">Ph.D. (Computer Vision), 2019</p>
-              <p class="institution">Indian Institute of Technology Delhi, India</p>
-            </div>
-          </li>
-          
-          <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">B.Tech. in Computer Science and Engineering, 2011</p>
-              <p class="institution">University School of IT, GGS Indraprastha University</p>
-            </div>
-          </li>
-          
-        </ul>
-      </div>
-      
-
-    </div>
-  </div>
-</div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  
-
-  
-  
-
-  <section id="news" class="home-section wg-blank   "  >
-    <div class="container">
-      
-
-
-<div class="row">
-  
-    <div class="col-12 col-lg-4 section-heading">
-      <h1>News</h1>
-      
-    </div>
-    <div class="col-12 col-lg-8">
-<ul>
-  <li> (Nov 2025) <a href="https://arxiv.org/abs/2511.20721">New preprint</a>: Foundry &mdash; Distilling 3D Foundation Models for the Edge</li>
-  <li> (Jun 2024) <a href="https://openaccess.thecvf.com/content/CVPR2024/html/Srivastava_OmniVec2_-_A_Novel_Transformer_based_Network_for_Large_Scale_CVPR_2024_paper.html">OmniVec2</a> accepted to <a href="https://cvpr.thecvf.com/">CVPR 2024</a></li>
-  <li> (Jan 2024) <a href="https://openaccess.thecvf.com/content/WACV2024/html/Srivastava_OmniVec_Learning_Robust_Representations_With_Cross_Modal_Sharing_WACV_2024_paper.html">OmniVec</a> accepted to <a href="https://wacv2024.thecvf.com/">WACV 2024</a></li>
-  <li> (Jan 2024) <a href="https://tensortour.com">TensorTour</a> acquired by <a href="https://www.typeface.ai">Typeface</a> [<a href="https://www.businesswire.com/news/home/20240125772170/en/Typeface-Announces-GA-of-its-New-Multimodal-AI-Content-Hub-Expands-into-Video-with-TensorTour-Acquisition" target="_blank" rel="noopener">Press</a>]</li>
-  <li> (July 2023) <a href="https://ieeexplore.ieee.org/abstract/document/10223053">Paper</a> accepted to <a href="https://2023.ieeeicip.org/">IEEE ICIP 2023</a></li>
-  <li> (May 2021) Selected as <a href="http://cvpr2021.thecvf.com/node/184">CVPR 2021 Outstanding Reviewer</a></li>
-  <li> (Feb 2021) Papers accepted to <a href="http://cvpr2021.thecvf.com/">CVPR 2021</a> and <a href="https://www.ieee-icra.org/">ICRA 2021</a></li>
-</ul>
-
-    </div>
-  
-</div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  
-
-  
-  
-
-  <section id="publications" class="home-section wg-pages   "  >
-    <div class="container">
-      
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-<div class="row ">
-  
-    
-      <div class="col-12 col-lg-4 section-heading">
-        <h1>Featured Publications</h1>
-        
-      </div>
-    
-  
-  <div class="col-12 col-lg-8">
-
-    
-
-    
-      
-        
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="https://openaccess.thecvf.com/content/CVPR2024/html/Srivastava_OmniVec2_-_A_Novel_Transformer_based_Network_for_Large_Scale_CVPR_2024_paper.html" target="_blank" rel="noopener">OmniVec2 - A Novel Transformer Based Network for Large Scale Multimodal and Multitask Learning</a>
-    </h3>
-
-
-      <div class="article-style">
-        CVPR 2024
-      </div>
-
-    <div class="stream-meta article-metadata">
-
-
-      <div>
-
-
-
-  <span class="author-highlighted"><a href="/author/siddharth-srivastava/">Siddharth Srivastava</a></span>, <span><a href="/author/gaurav-sharma/">Gaurav Sharma</a></span>
-      </div>
-
-    </div>
-
-
-    <div class="btn-links">
-
-<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://openaccess.thecvf.com/content/CVPR2024/html/Srivastava_OmniVec2_-_A_Novel_Transformer_based_Network_for_Large_Scale_CVPR_2024_paper.html" target="_blank" rel="noopener">
-  PDF
-</a>
-
-    </div>
-
-
-  </div>
-  <div class="ml-3">
-
-  </div>
-</div>
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="https://openaccess.thecvf.com/content/WACV2024/html/Srivastava_OmniVec_Learning_Robust_Representations_With_Cross_Modal_Sharing_WACV_2024_paper.html" target="_blank" rel="noopener">OmniVec: Learning Robust Representations With Cross Modal Sharing</a>
-    </h3>
-
-
-      <div class="article-style">
-        WACV 2024
-      </div>
-
-    <div class="stream-meta article-metadata">
-
-
-      <div>
-
-
-
-  <span class="author-highlighted"><a href="/author/siddharth-srivastava/">Siddharth Srivastava</a></span>, <span><a href="/author/gaurav-sharma/">Gaurav Sharma</a></span>
-      </div>
-
-    </div>
-
-
-    <div class="btn-links">
-
-<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://arxiv.org/abs/2311.05709" target="_blank" rel="noopener">
-  PDF
-</a>
-
-    </div>
-
-
-  </div>
-  <div class="ml-3">
-
-  </div>
-</div>
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/publication/beyondimdepth/" >Beyond Image to Depth: Improving Depth Prediction using Echoes</a>
-    </h3>
-
-
-    <a href="/publication/beyondimdepth/" class="summary-link">
-      <div class="article-style">
-        CVPR 2021
-      </div>
-    </a>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-      <div>
-        
-
-  
-  <span ><a href="/author/kranti-kumar-parida/">Kranti Kumar Parida</a></span>, <span class="author-highlighted"><a href="/author/siddharth-srivastava/">Siddharth Srivastava</a></span>, <span ><a href="/author/gaurav-sharma/">Gaurav Sharma</a></span>
-      </div>
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-    
-  
-
-
-
-<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://arxiv.org/pdf/2103.08468.pdf" target="_blank" rel="noopener">
-  PDF
-</a>
-
-
-
-
-  
-  
-    
-  
-<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://github.com/krantiparida/beyond-image-to-depth" target="_blank" rel="noopener">
-  Code
-</a>
-
-
-
-
-<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://krantiparida.github.io/projects/bimgdepth.html" target="_blank" rel="noopener">
-  Project
-</a>
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="/publication/beyondimdepth/" >
-      <img src="/publication/beyondimdepth/featured_hu39959f809dd0a8871cfd25ee27c9ef1f_209256_150x0_resize_lanczos_2.png" alt="Beyond Image to Depth: Improving Depth Prediction using Echoes">
-    </a>
-    
-  </div>
-</div>
-
-      
-    
-      
-        
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/publication/geomgcnn/" >Exploiting Local Geometry for Feature and Graph Construction for Better 3D Point Cloud Processing with Graph Neural Networks</a>
-    </h3>
-
-    
-    <a href="/publication/geomgcnn/" class="summary-link">
-      <div class="article-style">
-        ICRA 2021
-      </div>
-    </a>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-      <div>
-        
-
-  
-  <span class="author-highlighted"><a href="/author/siddharth-srivastava/">Siddharth Srivastava</a></span>, <span ><a href="/author/gaurav-sharma/">Gaurav Sharma</a></span>
-      </div>
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-    
-  
-
-
-
-<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://arxiv.org/pdf/2103.15226.pdf" target="_blank" rel="noopener">
-  PDF
-</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="/publication/geomgcnn/" >
-      <img src="/publication/geomgcnn/featured_hu36d89ee6815917f2c71ddb347600413a_102646_150x0_resize_lanczos_2.png" alt="Exploiting Local Geometry for Feature and Graph Construction for Better 3D Point Cloud Processing with Graph Neural Networks">
-    </a>
-    
-  </div>
-</div>
-
-      
-    
-      
-        
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/publication/scenegraphs/" >Using Scene Graphs for Detecting Visual Relationships</a>
-    </h3>
-
-    
-    <a href="/publication/scenegraphs/" class="summary-link">
-      <div class="article-style">
-        ICPR 2021
-      </div>
-    </a>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-      <div>
-        
-
-  
-  <span ><a href="/author/anurag-tripathi/">Anurag Tripathi</a></span>, <span class="author-highlighted"><a href="/author/siddharth-srivastava/">Siddharth Srivastava</a></span>, <span ><a href="/author/brejesh-lall/">Brejesh Lall</a></span>, <span ><a href="/author/santanu-chaudhury/">Santanu Chaudhury</a></span>
-      </div>
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-    
-  
-
-
-
-<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://ieeexplore.ieee.org/document/9412337" target="_blank" rel="noopener">
-  PDF
-</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://www.youtube.com/watch?v=3i4m5tW7HpI" target="_blank" rel="noopener">
-  Video
-</a>
-
-
-
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-      
-    
-      
-        
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-  
-
-
-
-      
-    
-
-    
-    
-    
-
-  </div>
-</div>
-
-    </div>
-  </section>
-
-
-
-
-      
-
-    
-    
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
-
-      
-
-      
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
-        
-      
-
-    
-
-    
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
-    
-
-    
-    
-    <script>const code_highlighting = true;</script>
-    
-
-    
-    
-    
-    
-    
-    
-    <script>
-      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
-      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
-      const content_type = {
-        'post': "Posts",
-        'project': "Projects",
-        'publication' : "Publications",
-        'talk' : "Talks",
-        'slides' : "Slides"
-        };
-    </script>
-    
-
-    
-    
-
-    
-    
-    <script id="search-hit-fuse-template" type="text/x-template">
-      <div class="search-hit" id="summary-{{key}}">
-      <div class="search-hit-content">
-        <div class="search-hit-name">
-          <a href="{{relpermalink}}">{{title}}</a>
-          <div class="article-metadata search-hit-type">{{type}}</div>
-          <p class="search-hit-description">{{snippet}}</p>
-        </div>
-      </div>
-      </div>
-    </script>
-    
-
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
-    
-
-    
-    
-
-    
-    
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-    </script>
-    
-
-    
-    
-
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      
-    
-    
-    
-    
-    <script src="/js/wowchemy.min.434af0ebce9e15b273b954d65feb39c7.js"></script>
-
-    
-
-
-
-
-
-
-  
-  
-  <div class="container">
-    <footer class="site-footer">
-  
-
-  <p class="powered-by">
-    
-  </p>
-
-  
-  
-
-
-
-
-
-
-  <p class="powered-by">
-
-    <span class="float-right" aria-hidden="true">
-      <a href="#" class="back-to-top">
-        <span class="button_icon">
-          <i class="fas fa-chevron-up fa-2x"></i>
-        </span>
-      </a>
-    </span>
-
-  </p>
-</footer>
-
-  </div>
-  
-
-  
-<div id="modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Cite</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#about" class="nav-brand">Siddharth Srivastava</a>
+      <div class="nav-links">
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-3a1 1 0 01-1-1V1a1 1 0 112 0v2a1 1 0 01-1 1zm0 18a1 1 0 01-1-1v-2a1 1 0 112 0v2a1 1 0 01-1 1zm9-9a1 1 0 01-1 1h-2a1 1 0 110-2h2a1 1 0 011 1zM4 13H2a1 1 0 110-2h2a1 1 0 110 2zm14.36-6.36a1 1 0 01-.7-.3l-1.42-1.4a1 1 0 011.41-1.42l1.42 1.42a1 1 0 01-.71 1.7zM7.05 18.36a1 1 0 01-.7-.3l-1.42-1.41a1 1 0 011.41-1.42l1.42 1.42a1 1 0 01-.71 1.7zM18.36 18.36a1 1 0 01-.7-1.7l1.41-1.42a1 1 0 111.42 1.42l-1.42 1.41a1 1 0 01-.71.3zM5.64 7.05a1 1 0 01-.7-1.7l1.41-1.42a1 1 0 011.42 1.41L6.35 6.76a1 1 0 01-.71.3z"/></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73A8.15 8.15 0 019.08 5.49a8.59 8.59 0 01.25-2 1 1 0 00-1.33-1.19 10 10 0 1013.64 10.7z"/></svg>
         </button>
       </div>
-      <div class="modal-body">
-        <pre><code class="tex hljs"></code></pre>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
-          <i class="fas fa-copy"></i> Copy
-        </a>
-        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
-          <i class="fas fa-download"></i> Download
-        </a>
-        <div id="modal-error"></div>
+    </div>
+  </nav>
+
+  <!-- ── About ── -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="profile-card">
+          <img class="avatar" src="/images/avatar.jpg" alt="Siddharth Srivastava" width="180" height="180">
+          <h1>Siddharth Srivastava</h1>
+          <div class="title">AI Architect (Director, ML)</div>
+          <div class="org"><a href="https://www.typeface.ai" target="_blank" rel="noopener">Typeface</a></div>
+          <a class="scholar-link" href="https://scholar.google.com/citations?user=tMpFlPIAAAAJ&hl=en" target="_blank" rel="noopener">
+            <!-- Google Scholar icon (inline SVG) -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 411.12L0 202.667 256 0l256 202.667z"/><path d="M256 411.12l-256-208.453L256 0z" opacity=".6"/><circle cx="256" cy="362.667" r="149.333"/><path d="M121.037 298.667c5.09-66.48 61.834-119.083 130.56-119.083 24.792 0 47.89 7.028 67.47 19.19l-52.834 43.09a64.07 64.07 0 00-14.636-1.697c-35.564 0-64.377 28.813-64.377 64.377 0 35.564 28.813 64.377 64.377 64.377 28.96 0 53.44-19.13 61.54-45.453H256v-53.333h138.667c2.506 13.45 3.834 27.397 3.834 41.643 0 82.475-66.858 149.333-149.333 149.333s-149.333-66.858-149.333-149.333c0-4.42.155-8.8.46-13.11z" fill="var(--bg)"/></svg>
+            Google Scholar
+          </a>
+        </div>
+        <div class="bio">
+          <p>I am an AI Architect at <a href="https://www.typeface.ai" target="_blank" rel="noopener">Typeface</a>, working on multimodal AI and generative content systems.</p>
+          <p>Previously, I co-founded <a href="https://tensortour.com" target="_blank" rel="noopener">TensorTour Inc.</a> (acquired by Typeface, 2024), where we built visual AI products including <a href="https://cloudstudio.ai/" target="_blank" rel="noopener">CloudStudio.ai</a>. I hold a Ph.D. from <a href="https://home.iitd.ac.in/" target="_blank" rel="noopener">IIT Delhi</a>.</p>
+          <div class="two-col">
+            <div>
+              <h3>Interests</h3>
+              <ul class="interests">
+                <li>Computer Vision</li>
+                <li>Multimodal AI</li>
+                <li>3D Scene Understanding</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Education</h3>
+              <ul class="education">
+                <li>
+                  <div class="edu-degree">Ph.D. (Computer Vision), 2019</div>
+                  <div class="edu-school">Indian Institute of Technology Delhi</div>
+                </li>
+                <li>
+                  <div class="edu-degree">B.Tech. in CS&amp;E, 2011</div>
+                  <div class="edu-school">GGS Indraprastha University</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
+
+  <!-- ── News ── -->
+  <section id="news">
+    <div class="container">
+      <h2 class="section-title">News</h2>
+      <ul class="news-list">
+        <li>
+          <span class="news-date">Nov 2025</span>
+          <span><a href="https://arxiv.org/abs/2511.20721" target="_blank" rel="noopener">New preprint</a>: Foundry &mdash; Distilling 3D Foundation Models for the Edge</span>
+        </li>
+        <li>
+          <span class="news-date">Jun 2024</span>
+          <span><a href="https://openaccess.thecvf.com/content/CVPR2024/html/Srivastava_OmniVec2_-_A_Novel_Transformer_based_Network_for_Large_Scale_CVPR_2024_paper.html" target="_blank" rel="noopener">OmniVec2</a> accepted to <a href="https://cvpr.thecvf.com/" target="_blank" rel="noopener">CVPR 2024</a></span>
+        </li>
+        <li>
+          <span class="news-date">Jan 2024</span>
+          <span><a href="https://openaccess.thecvf.com/content/WACV2024/html/Srivastava_OmniVec_Learning_Robust_Representations_With_Cross_Modal_Sharing_WACV_2024_paper.html" target="_blank" rel="noopener">OmniVec</a> accepted to <a href="https://wacv2024.thecvf.com/" target="_blank" rel="noopener">WACV 2024</a></span>
+        </li>
+        <li>
+          <span class="news-date">Jan 2024</span>
+          <span><a href="https://tensortour.com" target="_blank" rel="noopener">TensorTour</a> acquired by <a href="https://www.typeface.ai" target="_blank" rel="noopener">Typeface</a> [<a href="https://www.businesswire.com/news/home/20240125772170/en/Typeface-Announces-GA-of-its-New-Multimodal-AI-Content-Hub-Expands-into-Video-with-TensorTour-Acquisition" target="_blank" rel="noopener">Press</a>]</span>
+        </li>
+        <li>
+          <span class="news-date">Jul 2023</span>
+          <span><a href="https://ieeexplore.ieee.org/abstract/document/10223053" target="_blank" rel="noopener">Paper</a> accepted to <a href="https://2023.ieeeicip.org/" target="_blank" rel="noopener">IEEE ICIP 2023</a></span>
+        </li>
+        <li>
+          <span class="news-date">May 2021</span>
+          <span>Selected as <a href="http://cvpr2021.thecvf.com/node/184" target="_blank" rel="noopener">CVPR 2021 Outstanding Reviewer</a></span>
+        </li>
+        <li>
+          <span class="news-date">Feb 2021</span>
+          <span>Papers accepted to <a href="http://cvpr2021.thecvf.com/" target="_blank" rel="noopener">CVPR 2021</a> and <a href="https://www.ieee-icra.org/" target="_blank" rel="noopener">ICRA 2021</a></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Publications ── -->
+  <section id="publications">
+    <div class="container">
+      <h2 class="section-title">Featured Publications</h2>
+
+      <div class="pub-card">
+        <span class="pub-venue">CVPR 2024</span>
+        <div class="pub-title">
+          <a href="https://openaccess.thecvf.com/content/CVPR2024/html/Srivastava_OmniVec2_-_A_Novel_Transformer_based_Network_for_Large_Scale_CVPR_2024_paper.html" target="_blank" rel="noopener">OmniVec2 &ndash; A Novel Transformer Based Network for Large Scale Multimodal and Multitask Learning</a>
+        </div>
+        <div class="pub-authors"><strong>Siddharth Srivastava</strong>, Gaurav Sharma</div>
+        <div class="pub-links">
+          <a href="https://openaccess.thecvf.com/content/CVPR2024/html/Srivastava_OmniVec2_-_A_Novel_Transformer_based_Network_for_Large_Scale_CVPR_2024_paper.html" target="_blank" rel="noopener">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <span class="pub-venue">WACV 2024</span>
+        <div class="pub-title">
+          <a href="https://openaccess.thecvf.com/content/WACV2024/html/Srivastava_OmniVec_Learning_Robust_Representations_With_Cross_Modal_Sharing_WACV_2024_paper.html" target="_blank" rel="noopener">OmniVec: Learning Robust Representations With Cross Modal Sharing</a>
+        </div>
+        <div class="pub-authors"><strong>Siddharth Srivastava</strong>, Gaurav Sharma</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2311.05709" target="_blank" rel="noopener">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <span class="pub-venue">CVPR 2021</span>
+        <div class="pub-title">
+          <a href="https://arxiv.org/pdf/2103.08468.pdf" target="_blank" rel="noopener">Beyond Image to Depth: Improving Depth Prediction using Echoes</a>
+        </div>
+        <div class="pub-authors">Kranti Kumar Parida, <strong>Siddharth Srivastava</strong>, Gaurav Sharma</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/pdf/2103.08468.pdf" target="_blank" rel="noopener">PDF</a>
+          <a href="https://github.com/krantiparida/beyond-image-to-depth" target="_blank" rel="noopener">Code</a>
+          <a href="https://krantiparida.github.io/projects/bimgdepth.html" target="_blank" rel="noopener">Project</a>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <span class="pub-venue">ICRA 2021</span>
+        <div class="pub-title">
+          <a href="https://arxiv.org/pdf/2103.15226.pdf" target="_blank" rel="noopener">Exploiting Local Geometry for Feature and Graph Construction for Better 3D Point Cloud Processing with Graph Neural Networks</a>
+        </div>
+        <div class="pub-authors"><strong>Siddharth Srivastava</strong>, Gaurav Sharma</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/pdf/2103.15226.pdf" target="_blank" rel="noopener">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <span class="pub-venue">ICPR 2021</span>
+        <div class="pub-title">
+          <a href="https://ieeexplore.ieee.org/document/9412337" target="_blank" rel="noopener">Using Scene Graphs for Detecting Visual Relationships</a>
+        </div>
+        <div class="pub-authors">Anurag Tripathi, <strong>Siddharth Srivastava</strong>, Brejesh Lall, Santanu Chaudhury</div>
+        <div class="pub-links">
+          <a href="https://ieeexplore.ieee.org/document/9412337" target="_blank" rel="noopener">PDF</a>
+          <a href="https://www.youtube.com/watch?v=3i4m5tW7HpI" target="_blank" rel="noopener">Video</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container">
+      &copy; 2025 Siddharth Srivastava
+    </div>
+  </footer>
+
+  <!-- ── Dark Mode Toggle ── -->
+  <script>
+    (function() {
+      var btn = document.getElementById('theme-toggle');
+      var html = document.documentElement;
+
+      function isDark() {
+        return html.getAttribute('data-theme') === 'dark';
+      }
+
+      // Show correct icon
+      function updateIcon() {
+        var sun = btn.querySelector('.icon-sun');
+        var moon = btn.querySelector('.icon-moon');
+        if (isDark()) {
+          sun.style.display = 'block';
+          moon.style.display = 'none';
+        } else {
+          sun.style.display = 'none';
+          moon.style.display = 'block';
+        }
+      }
+
+      btn.addEventListener('click', function() {
+        var next = isDark() ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateIcon();
+      });
+
+      updateIcon();
+    })();
+  </script>
 
 </body>
 </html>
