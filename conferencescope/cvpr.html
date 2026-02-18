@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CVPR — ConferenceScope</title>
+  <meta name="description" content="Topic trends and analysis for Conference on Computer Vision and Pattern Recognition">
+  <meta name="author" content="Siddharth Srivastava">
+  <meta name="theme-color" content="#2962ff">
+
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #2962ff;
+      --accent-hover: #0039cb;
+      --bg: #ffffff;
+      --bg-card: #f8f9fa;
+      --bg-nav: rgba(255,255,255,0.85);
+      --text: #212529;
+      --text-secondary: #555;
+      --border: #e0e0e0;
+      --tag-bg: #e3f2fd;
+      --tag-text: #1565c0;
+      --shadow: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-hover: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --bg-card: #1e1e1e;
+      --bg-nav: rgba(18,18,18,0.9);
+      --text: #e0e0e0;
+      --text-secondary: #aaa;
+      --border: #333;
+      --tag-bg: #1a237e;
+      --tag-text: #90caf9;
+      --shadow: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-hover: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.3; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-nav);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-brand:hover { color: var(--accent); text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 20px; }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+    .theme-toggle:hover { color: var(--accent); }
+    .theme-toggle svg { width: 20px; height: 20px; fill: currentColor; }
+
+    section {
+      padding: 48px 0;
+      scroll-margin-top: 64px;
+    }
+    section + section { border-top: 1px solid var(--border); }
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+    }
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-top: -16px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: var(--shadow-hover); }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--tag-text);
+      background: var(--tag-bg);
+      padding: 2px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .chart-container {
+      position: relative;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .heatmap-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      overflow-x: auto;
+      display: block;
+    }
+    .heatmap-table th, .heatmap-table td {
+      padding: 6px 10px;
+      text-align: center;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .heatmap-table th {
+      background: var(--bg-card);
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+    }
+    .heatmap-table td:first-child {
+      text-align: left;
+      font-weight: 500;
+      position: sticky;
+      left: 0;
+      background: var(--bg);
+      z-index: 1;
+    }
+
+    .conf-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .conf-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      text-decoration: none;
+      color: var(--text);
+      transition: box-shadow 0.2s, border-color 0.2s;
+      display: block;
+    }
+    .conf-card:hover {
+      box-shadow: var(--shadow-hover);
+      text-decoration: none;
+      border-color: var(--accent);
+    }
+    .conf-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+    .conf-card .conf-full-name {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .conf-card .conf-stat {
+      font-size: 0.9rem;
+    }
+
+    .paper-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .paper-table th, .paper-table td {
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .paper-table th {
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .paper-table tr:hover td { background: var(--bg-card); }
+    .paper-table .cite-count {
+      font-weight: 600;
+      color: var(--accent);
+      text-align: right;
+    }
+
+    .emerging-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .emerging-list li {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.85rem;
+    }
+    .emerging-list .growth {
+      color: #00c853;
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin-left: 4px;
+    }
+
+    .distinctive-list {
+      list-style: none;
+    }
+    .distinctive-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .distinctive-list .ratio {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    footer {
+      padding: 32px 0;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .stats-row { gap: 16px; }
+      section { padding: 32px 0; }
+      .section-title { font-size: 1.3rem; }
+      .heatmap-table { font-size: 0.72rem; }
+      .heatmap-table th, .heatmap-table td { padding: 4px 6px; }
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/conferencescope/" class="nav-brand">ConferenceScope</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/conferencescope/">Dashboard</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-3a1 1 0 01-1-1V1a1 1 0 112 0v2a1 1 0 01-1 1zm0 18a1 1 0 01-1-1v-2a1 1 0 112 0v2a1 1 0 01-1 1zm9-9a1 1 0 01-1 1h-2a1 1 0 110-2h2a1 1 0 011 1zM4 13H2a1 1 0 110-2h2a1 1 0 110 2zm14.36-6.36a1 1 0 01-.7-.3l-1.42-1.4a1 1 0 011.41-1.42l1.42 1.42a1 1 0 01-.71 1.7zM7.05 18.36a1 1 0 01-.7-.3l-1.42-1.41a1 1 0 011.41-1.42l1.42 1.42a1 1 0 01-.71 1.7zM18.36 18.36a1 1 0 01-.7-1.7l1.41-1.42a1 1 0 111.42 1.42l-1.42 1.41a1 1 0 01-.71.3zM5.64 7.05a1 1 0 01-.7-1.7l1.41-1.42a1 1 0 011.42 1.41L6.35 6.76a1 1 0 01-.71.3z"/></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73A8.15 8.15 0 019.08 5.49a8.59 8.59 0 01.25-2 1 1 0 00-1.33-1.19 10 10 0 1013.64 10.7z"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  
+  <section>
+    <div class="container">
+      <p style="margin-bottom: 8px;">
+        <a href="index.html" style="font-size: 0.85rem;">&larr; Back to Dashboard</a>
+      </p>
+      <h1 style="font-size: 2rem; margin-bottom: 4px;">CVPR</h1>
+      <p style="color: var(--text-secondary); margin-bottom: 32px;">Conference on Computer Vision and Pattern Recognition</p>
+      <div class="stats-row">
+        <div>
+          <div class="stat-number">14,003</div>
+          <div class="stat-label">Total papers</div>
+        </div>
+        <div>
+          
+          <div class="stat-number">1,934</div>
+          <div class="stat-label">Papers in 2025</div>
+        </div>
+        <div>
+          
+          <div class="stat-number">Dataset & Benchmark</div>
+          <div class="stat-label">Top topic (2025)</div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paper Count Trajectory -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Paper Count Over Time</h2>
+      <div class="chart-container" style="height: 300px;">
+        <canvas id="trajectoryChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Topics Bar Chart -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Top Topics (2025)</h2>
+      <div class="chart-container" style="height: 500px;">
+        <canvas id="topTopicsChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Topic Trajectory Stacked Area -->
+  
+  <section>
+    <div class="container">
+      <h2 class="section-title">Topic Trajectory (Top 10)</h2>
+      <p class="section-subtitle">Fraction of papers covering each topic over time</p>
+      <div class="chart-container" style="height: 400px;">
+        <canvas id="topicTrajectoryChart"></canvas>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Distinctive Topics -->
+  
+  <section>
+    <div class="container">
+      <h2 class="section-title">Distinctive to CVPR</h2>
+      <p class="section-subtitle">Topics over-represented at CVPR vs. the field average (2025)</p>
+      <ul class="distinctive-list">
+        
+        <li>
+          <span>Optical Flow <span style="color: var(--text-secondary); font-size: 0.8rem;">(1.8% vs 0.6% field avg)</span></span>
+          <span class="ratio">3.09&times;</span>
+        </li>
+        
+        <li>
+          <span>3D Generation <span style="color: var(--text-secondary); font-size: 0.8rem;">(1.3% vs 0.4% field avg)</span></span>
+          <span class="ratio">3.03&times;</span>
+        </li>
+        
+        <li>
+          <span>Pose Estimation <span style="color: var(--text-secondary); font-size: 0.8rem;">(3.8% vs 1.3% field avg)</span></span>
+          <span class="ratio">2.86&times;</span>
+        </li>
+        
+        <li>
+          <span>Image Editing <span style="color: var(--text-secondary); font-size: 0.8rem;">(2.2% vs 0.8% field avg)</span></span>
+          <span class="ratio">2.82&times;</span>
+        </li>
+        
+        <li>
+          <span>3D Vision <span style="color: var(--text-secondary); font-size: 0.8rem;">(29.1% vs 11.1% field avg)</span></span>
+          <span class="ratio">2.62&times;</span>
+        </li>
+        
+        <li>
+          <span>Video Generation <span style="color: var(--text-secondary); font-size: 0.8rem;">(3.2% vs 1.3% field avg)</span></span>
+          <span class="ratio">2.55&times;</span>
+        </li>
+        
+        <li>
+          <span>Autonomous Driving <span style="color: var(--text-secondary); font-size: 0.8rem;">(5.7% vs 2.3% field avg)</span></span>
+          <span class="ratio">2.47&times;</span>
+        </li>
+        
+        <li>
+          <span>Visual Grounding <span style="color: var(--text-secondary); font-size: 0.8rem;">(1.2% vs 0.5% field avg)</span></span>
+          <span class="ratio">2.44&times;</span>
+        </li>
+        
+        <li>
+          <span>Visual Tracking <span style="color: var(--text-secondary); font-size: 0.8rem;">(1.0% vs 0.4% field avg)</span></span>
+          <span class="ratio">2.39&times;</span>
+        </li>
+        
+        <li>
+          <span>Text-to-Image <span style="color: var(--text-secondary); font-size: 0.8rem;">(4.5% vs 2.0% field avg)</span></span>
+          <span class="ratio">2.3&times;</span>
+        </li>
+        
+      </ul>
+    </div>
+  </section>
+  
+
+  <!-- Top Cited Papers -->
+  
+  <section>
+    <div class="container">
+      <h2 class="section-title">Most Cited Papers</h2>
+      <div style="overflow-x: auto;">
+        <table class="paper-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Title</th>
+              <th style="text-align: right;">Citations</th>
+              <th>Links</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>2021</td>
+              <td>High-Resolution Image Synthesis with Latent Diffusion Models</td>
+              <td class="cite-count">21,909</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/c10075b3746a9f3dd5811970e93c8ca3ad39b39d" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/2112.10752" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2019</td>
+              <td>Momentum Contrast for Unsupervised Visual Representation Learning</td>
+              <td class="cite-count">14,254</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/add2f205338d70e10ce5e686df4a690e2851bdfc" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/1911.05722" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2021</td>
+              <td>Masked Autoencoders Are Scalable Vision Learners</td>
+              <td class="cite-count">10,415</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/6351ebb4a3287f5f3e1273464b3b91e5df5a16d7" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/2111.06377" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2022</td>
+              <td>YOLOv7: Trainable Bag-of-Freebies Sets New State-of-the-Art for Real-Time Object Detectors</td>
+              <td class="cite-count">9,437</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/3aed4648f7857c1d5e9b1da4c3afaf97463138c3" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/2207.02696" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2019</td>
+              <td>nuScenes: A Multimodal Dataset for Autonomous Driving</td>
+              <td class="cite-count">7,395</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/9e475a514f54665478aac6038c262e5a6bac5e64" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/1903.11027" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2022</td>
+              <td>A ConvNet for the 2020s</td>
+              <td class="cite-count">7,304</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/177e957f5cd93229c9794ea652c646d2557b4a69" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/2201.03545" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2019</td>
+              <td>Analyzing and Improving the Image Quality of StyleGAN</td>
+              <td class="cite-count">6,705</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/14fdc18d9c164e5b0d6d946b3238c04e81921358" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/1912.04958" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2019</td>
+              <td>EfficientDet: Scalable and Efficient Object Detection</td>
+              <td class="cite-count">6,432</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/41c67d04be2d1632c0d3b0880c21c9fe797cdab8" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/1911.09070" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2019</td>
+              <td>ECA-Net: Efficient Channel Attention for Deep Convolutional Neural Networks</td>
+              <td class="cite-count">5,401</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/8cb34cbdcf65c23ef98430441b14a648c4e8d992" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/1910.03151" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2019</td>
+              <td>Generalized Intersection Over Union: A Metric and a Loss for Bounding Box Regression</td>
+              <td class="cite-count">5,258</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/889c81b4d7b7ed43a3f69f880ea60b0572e02e27" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/1902.09630" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2019</td>
+              <td>Deep High-Resolution Representation Learning for Human Pose Estimation</td>
+              <td class="cite-count">4,836</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/6303bac53abd725c3b458190a6abe389a4a1e72d" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/1902.09212" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2020</td>
+              <td>Exploring Simple Siamese Representation Learning</td>
+              <td class="cite-count">4,751</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/0e23d2f14e7e56e81538f4a63e11689d8ac1eb9d" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/2011.10566" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2023</td>
+              <td>Improved Baselines with Visual Instruction Tuning</td>
+              <td class="cite-count">4,381</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/124d4d374fbef2016fa9880489871a58a7450644" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/2310.03744" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2021</td>
+              <td>Coordinate Attention for Efficient Mobile Network Design</td>
+              <td class="cite-count">4,368</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/70cf7c785952375e8061c92235aa20e94b02ecd4" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/2103.02907" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2019</td>
+              <td>DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation</td>
+              <td class="cite-count">4,290</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/dd81523b9accdf1c13cd37f76b22ab27d84b7a42" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/1901.05103" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2020</td>
+              <td>Taming Transformers for High-Resolution Image Synthesis</td>
+              <td class="cite-count">3,891</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/47f7ec3d0a5e6e83b6768ece35206a94dc81919c" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/2012.09841" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2022</td>
+              <td>DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation</td>
+              <td class="cite-count">3,850</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/5b19bf6c3f4b25cac96362c98b930cf4b37f6744" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/2208.12242" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2019</td>
+              <td>Scalability in Perception for Autonomous Driving: Waymo Open Dataset</td>
+              <td class="cite-count">3,701</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/8406903fd2f0eb25349bf071ccfaae3947e2a9cd" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/1912.04838" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2019</td>
+              <td>GhostNet: More Features From Cheap Operations</td>
+              <td class="cite-count">3,684</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/a4cc0701170331a1fd0e58bad962bd7f39f5efc9" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/1911.11907" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td>2020</td>
+              <td>Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers</td>
+              <td class="cite-count">3,464</td>
+              <td>
+                <a href="https://www.semanticscholar.org/paper/d29430adccb805ab57b349afa8553954347b3197" target="_blank" rel="noopener">S2</a>
+                
+                &middot; <a href="https://arxiv.org/abs/2012.15840" target="_blank" rel="noopener">arXiv</a>
+                
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+
+
+  <footer>
+    <div class="container">
+      Generated February 18, 2026 &middot; Data from <a href="https://www.semanticscholar.org/" target="_blank" rel="noopener">Semantic Scholar</a>
+      &middot; <a href="https://github.com/siddharthsrivastava/conferencescope" target="_blank" rel="noopener">Source</a>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('theme-toggle');
+      var html = document.documentElement;
+
+      function isDark() { return html.getAttribute('data-theme') === 'dark'; }
+
+      function updateIcon() {
+        var sun = btn.querySelector('.icon-sun');
+        var moon = btn.querySelector('.icon-moon');
+        if (isDark()) { sun.style.display = 'block'; moon.style.display = 'none'; }
+        else { sun.style.display = 'none'; moon.style.display = 'block'; }
+      }
+
+      // Chart.js theme colors
+      var lightColors = {
+        grid: 'rgba(0,0,0,0.06)',
+        text: '#555',
+        tooltip: { bg: '#fff', text: '#212529', border: '#e0e0e0' }
+      };
+      var darkColors = {
+        grid: 'rgba(255,255,255,0.08)',
+        text: '#aaa',
+        tooltip: { bg: '#1e1e1e', text: '#e0e0e0', border: '#333' }
+      };
+
+      function applyChartTheme() {
+        var c = isDark() ? darkColors : lightColors;
+        Chart.defaults.color = c.text;
+        Chart.defaults.borderColor = c.grid;
+        Chart.defaults.plugins.tooltip.backgroundColor = c.tooltip.bg;
+        Chart.defaults.plugins.tooltip.titleColor = c.tooltip.text;
+        Chart.defaults.plugins.tooltip.bodyColor = c.tooltip.text;
+        Chart.defaults.plugins.tooltip.borderColor = c.tooltip.border;
+        Chart.defaults.plugins.tooltip.borderWidth = 1;
+        // Re-render all charts
+        Chart.helpers.each(Chart.instances, function(chart) {
+          chart.options.scales = chart.options.scales || {};
+          for (var key in chart.options.scales) {
+            chart.options.scales[key].grid = chart.options.scales[key].grid || {};
+            chart.options.scales[key].grid.color = c.grid;
+            chart.options.scales[key].ticks = chart.options.scales[key].ticks || {};
+            chart.options.scales[key].ticks.color = c.text;
+          }
+          chart.update('none');
+        });
+      }
+
+      btn.addEventListener('click', function() {
+        var next = isDark() ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateIcon();
+        applyChartTheme();
+      });
+
+      updateIcon();
+      // Apply theme on load
+      document.addEventListener('DOMContentLoaded', applyChartTheme);
+    })();
+  </script>
+
+  
+<script>
+var PALETTE = [
+  '#2962ff', '#00c853', '#ff6d00', '#d50000',
+  '#aa00ff', '#00bfa5', '#ffd600', '#ff4081',
+  '#304ffe', '#64dd17', '#ff9100', '#c51162'
+];
+
+// Paper count trajectory (line chart)
+(function() {
+  var ctx = document.getElementById('trajectoryChart').getContext('2d');
+  var data = {"labels":["2019","2020","2021","2022","2023","2024","2025"],"datasets":[{"data":[1316,1512,1792,2076,2619,2754,1934],"borderColor":"#2962ff","backgroundColor":"#2962ff33","fill":true}]};
+  new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { title: { display: true, text: 'Papers' }, beginAtZero: true }
+      },
+      elements: {
+        line: { tension: 0.3, borderWidth: 3 },
+        point: { radius: 5, hoverRadius: 7 }
+      }
+    }
+  });
+})();
+
+// Top topics horizontal bar chart
+(function() {
+  var ctx = document.getElementById('topTopicsChart').getContext('2d');
+  var data = {"labels":["Dataset & Benchmark","3D Vision","Adversarial Robustness","Video Understanding","Diffusion Models","Optimization","Multimodal Learning","Vision-Language Models","Transformers","Image Segmentation","Transfer Learning","Large Language Models","Image Restoration","Few-Shot Learning","Robotics","Representation Learning","Self-Supervised Learning","Image Generation","Efficient Inference","Autonomous Driving"],"datasets":[{"data":[602,562,434,433,389,335,333,275,263,243,242,198,188,186,150,150,148,145,136,110],"backgroundColor":"#2962ff"}]};
+  new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { title: { display: true, text: 'Papers' } }
+      }
+    }
+  });
+})();
+
+// Topic trajectory stacked area chart
+
+(function() {
+  var ctx = document.getElementById('topicTrajectoryChart').getContext('2d');
+  var data = {"labels":["2019","2020","2021","2022","2023","2024","2025"],"datasets":[{"label":"Dataset & Benchmark","data":[0.3541,0.3426,0.3108,0.3232,0.3123,0.2796,0.3113],"borderColor":"#2962ff","backgroundColor":"#2962ff44","fill":true},{"label":"3D Vision","data":[0.2196,0.2566,0.2394,0.2596,0.3032,0.276,0.2906],"borderColor":"#00c853","backgroundColor":"#00c85344","fill":true},{"label":"Adversarial Robustness","data":[0.2371,0.2262,0.2042,0.1951,0.1905,0.171,0.2244],"borderColor":"#ff6d00","backgroundColor":"#ff6d0044","fill":true},{"label":"Video Understanding","data":[0.1603,0.1693,0.1948,0.1893,0.189,0.1961,0.2239],"borderColor":"#d50000","backgroundColor":"#d5000044","fill":true},{"label":"Diffusion Models","data":[0.0068,0.0026,0.0067,0.0361,0.118,0.2033,0.2011],"borderColor":"#aa00ff","backgroundColor":"#aa00ff44","fill":true},{"label":"Optimization","data":[0.1307,0.1343,0.1362,0.1479,0.1485,0.1314,0.1732],"borderColor":"#00bfa5","backgroundColor":"#00bfa544","fill":true},{"label":"Multimodal Learning","data":[0.0372,0.0476,0.067,0.0857,0.1096,0.1209,0.1722],"borderColor":"#ffd600","backgroundColor":"#ffd60044","fill":true},{"label":"Vision-Language Models","data":[0.0296,0.0298,0.0441,0.0694,0.1065,0.1213,0.1422],"borderColor":"#ff4081","backgroundColor":"#ff408144","fill":true},{"label":"Transformers","data":[0.0403,0.0635,0.1116,0.1869,0.1585,0.1227,0.136],"borderColor":"#304ffe","backgroundColor":"#304ffe44","fill":true},{"label":"Image Segmentation","data":[0.1436,0.1667,0.1546,0.1541,0.155,0.1158,0.1256],"borderColor":"#64dd17","backgroundColor":"#64dd1744","fill":true}]};
+  new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { boxWidth: 12, padding: 12 } }
+      },
+      scales: {
+        x: {},
+        y: {
+          stacked: true,
+          title: { display: true, text: 'Fraction of Papers' },
+          ticks: { callback: function(v) { return (v * 100).toFixed(0) + '%'; } }
+        }
+      },
+      elements: {
+        line: { tension: 0.3, borderWidth: 2 }
+      }
+    }
+  });
+})();
+
+</script>
+
+</body>
+</html>
